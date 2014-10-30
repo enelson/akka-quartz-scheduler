@@ -85,11 +85,11 @@ class QuartzSchedulerExtension(system: ExtendedActorSystem) extends Extension {
    * a scheduler in standby mode.
    */
   def start(): Boolean = if (isStarted) {
-    log.warning("Cannot start scheduler, already started.")
-    false
-  } else {
     scheduler.start
     true
+  } else {
+    log.warning("Cannot start scheduler, already started.")
+    false
   }
 
   def isStarted = scheduler.isStarted
